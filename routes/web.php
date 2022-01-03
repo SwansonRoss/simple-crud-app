@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GenericObjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [GenericObjectController::class, 'read']);
+
+Route::post('/create', [GenericObjectController::class, 'create']);
+Route::post('/update', [GenericObjectController::class, 'update']);
+Route::post('/delete', [GenericObjectController::class, 'delete']);
